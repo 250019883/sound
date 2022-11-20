@@ -4,8 +4,11 @@ input.onSound(DetectedSound.Quiet, function () {
 input.setSoundThreshold(SoundThreshold.Quiet, 30)
 basic.forever(function () {
     if (input.soundLevel() > 40) {
+        music.setBuiltInSpeakerEnabled(true)
         basic.showIcon(IconNames.Sad)
         music.ringTone(988)
+        basic.pause(1000)
+        music.setBuiltInSpeakerEnabled(false)
     } else {
         music.stopAllSounds()
     }
